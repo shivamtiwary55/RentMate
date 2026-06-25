@@ -36,59 +36,6 @@
 | Scheduler | node-cron |
 | Deployment | Vercel (frontend) + Render (backend) |
 
-## 📁 Project Structure
-\`\`\`
-rentmate/
-├── backend/          # Express API
-│   ├── controllers/  # Business logic
-│   ├── models/       # MongoDB schemas
-│   ├── routes/       # API endpoints
-│   ├── middleware/   # Auth & upload
-│   └── utils/        # Token, cron jobs
-└── frontend/         # React app
-    └── src/
-        ├── pages/    # Student, Landlord, Admin
-        ├── components/
-        └── context/  # Auth context
-\`\`\`
-
-## ⚙️ Run Locally
-
-\`\`\`bash
-# Clone
-git clone https://github.com/YOUR_USERNAME/rentmate.git
-
-# Backend
-cd rentmate/backend
-npm install
-# create .env with your values
-npm run dev
-
-# Frontend
-cd ../frontend
-npm install
-npm run dev
-\`\`\`
-
-## 🔑 Environment Variables
-
-### Backend (.env)
-\`\`\`
-MONGO_URI=
-JWT_SECRET=
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-EMAIL_USER=
-EMAIL_PASS=
-FRONTEND_URL=
-\`\`\`
-
-### Frontend (.env)
-\`\`\`
-VITE_API_URL=
-VITE_SOCKET_URL=
-\`\`\`
 
 ## 👨‍💻 Author
 [Shivam Tiwary) · [https://www.linkedin.com/in/shivam-tiwary-4646802b8/)
