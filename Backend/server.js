@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    process.env.FRONTEND_URL  // will add this later
+    'https://rentmate-seven.vercel.app'
   ],
   credentials: true
 }));
