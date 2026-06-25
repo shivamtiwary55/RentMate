@@ -28,10 +28,16 @@ const Navbar = () => {
           <>
             <span>Hi, {user.name} ({user.role})</span>
             {user.role === 'student' && (
-              <Link to="/quiz" style={{ color: 'white' }}>Roommate Quiz</Link>
+              <>
+                <Link to="/quiz" style={{ color: 'white' }}>Roommate Quiz</Link>
+                <Link to="/complaints" style={{ color: 'white' }}>Complaints</Link>
+              </>
             )}
             {user.role === 'landlord' && (
-              <Link to="/landlord/dashboard" style={{ color: 'white' }}>My Listings</Link>
+              <>
+                <Link to="/landlord/dashboard" style={{ color: 'white' }}>My Listings</Link>
+                <Link to="/complaints" style={{ color: 'white' }}>Complaints</Link>
+              </>
             )}
             {user.role === 'admin' && (
               <Link to="/admin" style={{ color: 'white' }}>Admin Panel</Link>

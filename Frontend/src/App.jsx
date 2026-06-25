@@ -7,12 +7,25 @@ import Home from './pages/student/Home.jsx';
 import Quiz from './pages/student/Quiz.jsx';
 import Dashboard from './pages/landlord/Dashboard.jsx';
 import AdminPanel from './pages/admin/AdminPanel.jsx';
+import Expenses from './pages/student/Expenses.jsx';
+import Complaints from './pages/student/Complaints.jsx';
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
+        <Route path="/expenses/:listingId" element={
+          <ProtectedRoute allowedRoles={['student', 'landlord']}>
+            <Expenses />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/complaints" element={
+          <ProtectedRoute allowedRoles={['student', 'landlord']}>
+            <Complaints />
+          </ProtectedRoute>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
