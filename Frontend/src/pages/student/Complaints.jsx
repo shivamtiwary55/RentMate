@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import axios from '../../api/axios.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 
-const socket = io('http://localhost:5000');
+const socket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000');
 
 const statusColor = {
   pending: { bg: '#FFF3F0', color: '#D32F2F' },
