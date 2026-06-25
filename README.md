@@ -3,8 +3,8 @@
 > A hyperlocal rental and roommate finding platform for students — find rooms, find compatible roommates, split expenses, track complaints, and review landlords.
 
 ## 🔗 Live Demo
-**Frontend:** [[https://rentmate.vercel.app](https://rentmate.vercel.app](https://rentmate-git-main-shivamtiwary55s-projects.vercel.app/))  
-**Backend API:** [https://rentmate-ioli.onrender.com](https://rentmate-ioli.onrender.com)
+**Frontend:** https://rentmate-seven.vercel.app/ 
+**Backend API:** https://rentmate-ioli.onrender.com
 
 ## 🎯 Demo Credentials
 | Role | Email | Password |
