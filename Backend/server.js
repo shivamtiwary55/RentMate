@@ -6,6 +6,7 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { connectDB } from './config/db.js';
 import { startRentReminder } from './utils/rentReminder.js';
+import adminRoutes from './routes/admin.routes.js';
 
 // Routes
 import authRoutes from './routes/auth.routes.js';
@@ -59,6 +60,7 @@ app.use('/api/quiz', quizRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Start server
 httpServer.listen(PORT, () => {
