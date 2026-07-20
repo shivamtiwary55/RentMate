@@ -9,11 +9,13 @@ import Dashboard from './pages/landlord/Dashboard.jsx';
 import AdminPanel from './pages/admin/AdminPanel.jsx';
 import Expenses from './pages/student/Expenses.jsx';
 import Complaints from './pages/student/Complaints.jsx';
+import AIChatbot from './components/common/AIChatbot.jsx';
 
 function App() {
   return (
     <>
       <Navbar />
+      <AIChatbot />
       <Routes>
         <Route path="/expenses/:listingId" element={
           <ProtectedRoute allowedRoles={['student', 'landlord']}>

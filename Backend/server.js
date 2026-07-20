@@ -7,6 +7,7 @@ import { Server } from 'socket.io';
 import { connectDB } from './config/db.js';
 import { startRentReminder } from './utils/rentReminder.js';
 import adminRoutes from './routes/admin.routes.js';
+import aiRoutes from './routes/ai.routes.js';
 
 // Routes
 import authRoutes from './routes/auth.routes.js';
@@ -57,6 +58,7 @@ app.use(cors({
   ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -68,7 +70,7 @@ app.use('/api/expenses', expenseRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/admin', adminRoutes);
-
+app.use('/api/ai', aiRoutes);
 // Start server
 httpServer.listen(PORT, () => {
   connectDB();
