@@ -5,4 +5,13 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
+// Har request mein token header mein add karo
+axiosInstance.interceptors.request.use((config) => {
+  const token = localStorage.getItem('rentmate_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export default axiosInstance;

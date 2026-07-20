@@ -7,39 +7,34 @@ export const register = async (req, res) => {
   try {
     const { name, email, password, role, phone } = req.body;
 
-    // Check all fields
     if (!name || !email || !password) {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'Email already registered' });
     }
 
-    // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create user
     const user = await User.create({
-      name,
-      email,
+      name, email,
       password: hashedPassword,
       role: role || 'student',
       phone: phone || ''
     });
 
-    // Generate token & send response
-    generateToken(res, user._id, user.role);
+    const token = generateToken(res, user._id, user.role);
 
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       role: user.role,
-      phone: user.phone
+      phone: user.phone,
+      token  // ← added
     });
 
   } catch (error) {
@@ -57,27 +52,25 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: 'Email and password required' });
     }
 
-    // Find user
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    // Check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    // Generate token
-    generateToken(res, user._id, user.role);
+    const token = generateToken(res, user._id, user.role);
 
     res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       role: user.role,
-      phone: user.phone
+      phone: user.phone,
+      token  // ← added
     });
 
   } catch (error) {
@@ -92,7 +85,7 @@ export const logout = (req, res) => {
   res.status(200).json({ message: 'Logged out successfully' });
 };
 
-// GET CURRENT USER (me)
+// GET CURRENT USER
 export const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId).select('-password');
