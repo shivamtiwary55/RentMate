@@ -26,9 +26,12 @@ const PORT = process.env.PORT || 5000;
 // Socket.IO setup
 const io = new Server(httpServer, {
   cors: {
-
-    origin: 'https://rentmate-seven.vercel.app',
-    credentials: true
+    origin: [
+      'http://localhost:5173',
+      'https://rentmate-seven.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST']
   }
 });
 
@@ -56,7 +59,9 @@ app.use(cors({
     'http://localhost:5173',
     'https://rentmate-seven.vercel.app'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
 }));
 
 app.use(express.json());

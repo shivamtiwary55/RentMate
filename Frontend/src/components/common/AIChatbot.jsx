@@ -46,7 +46,7 @@ const AIChatbot = () => {
     } catch (err) {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: '❌ Sorry, AI service mein kuch problem hai. Please try again!'
+        content: ' Sorry, AI service mein kuch problem hai. Please try again!'
       }]);
     } finally {
       setLoading(false);
